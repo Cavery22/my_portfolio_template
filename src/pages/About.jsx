@@ -1,34 +1,52 @@
 import { NavLink } from 'react-router-dom';
-import PlaceholderImage from '../assets/placeholder_image.png';
-
-// Replace these variables with your information
-const firstName = 'Replace with your first name';
-const jobTitle = 'Replace with your title';
-const company = 'Replace with your company name';
-const mainDuty = 'Replace with your main duty';
-const jobLocation = 'Replace with your job location';
-const briefJobDescription = 'Replace with a brief description of your job';
-const careerObjective = 'Replace with your career objective';
-const personalLife = 'Replace with a brief description of your personal life';
+import avatar from '../assets/avatar.jpg';
+import background from '../assets/background.webp';
 
 const About = () => {
   return (
-    <main className="about-container">
-      <section className='about-content-container'>
-        <section className='image-container'>
-          {/* Replace this placeholder image and alt tag with a professional headshot */}
-          <img className='headshot' src={PlaceholderImage} alt="placeholder image" />
-        </section>
-        <section className='description-container'>
-          <h2 className='text-xl font-medium'>I&apos;m {firstName}, a {jobTitle} working for, {company} on {mainDuty} located in, {jobLocation}</h2>
-          <p>{briefJobDescription}</p>
-          <p>{careerObjective}</p>
-          <p>{personalLife}</p>
-          <p className='mb-4'>If you are interested in my work, reach out to me!</p>
-          <NavLink to="/contact" className="contact-me-btn">Contact Me</NavLink>
-        </section>
+    <main className="pt-20 bg-white min-h-screen">
+      <section
+        className="relative py-20 px-6 bg-cover bg-center animate-fade-in min-h-screen"
+        style={{ backgroundImage: `url(${background})` }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-white bg-opacity-70 z-0 pointer-events-none" />
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          {/* Profile Image */}
+          <img
+            src={avatar}
+            alt="Cozy Avery avatar"
+            className="w-44 h-44 md:w-56 md:h-56 rounded-full object-cover mx-auto mb-6 shadow-md"
+          />
+
+          <h2 className="text-3xl font-bold text-blue-600 mb-6">About Me</h2>
+
+          <p className="text-lg text-gray-700 leading-relaxed mb-4">
+            I'm Cozy — a passionate frontend developer with a love for building user-friendly, engaging interfaces. I recently completed an intensive full-stack development program through NPower, where I learned how to bring design and functionality together.
+          </p>
+
+          <p className="text-lg text-gray-700 mb-6">
+            Outside of tech, I'm a proud mom who enjoys traveling, staying active, and exploring new places with my daughter. My mission is to create accessible and joyful digital experiences.
+          </p>
+
+          <NavLink
+            to="/resume"
+            className="inline-block mt-4 px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition"
+          >
+            View My Resume
+          </NavLink>
+        </div>
+      </section>
+
+      {/* Scroll test section (optional) */}
+      <section className="py-20 text-center">
+        <h3 className="text-xl text-gray-600">Scroll Test</h3>
+        <p className="text-gray-500">If you see this, scroll is working! ✅</p>
       </section>
     </main>
-  )
-}
- export default About;
+  );
+};
+
+export default About;
+

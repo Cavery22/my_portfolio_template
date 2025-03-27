@@ -1,54 +1,63 @@
 import { FaGithub } from "react-icons/fa6";
+import foodOrderingAppImage from "../assets/food-ordering-app.jpg";
+import weatherAppImage from "../assets/weather-app.jpg.png";
 
-// Replace the projects inside the myProjects array with your own projects. Right now the array has sample data. You can add as many projects as you want. Each project should be an object with the following
-// properties:
-// - title: The title of the project
-// - description: A description of the project
-// - repositoryLink: A link to the GitHub repository of the project
-// You can also add more properties if you want to display more information about your projects.
+
 const myProjects = [
   {
-    title: 'Project 1',
-    description: 'Description of project 1',
-    repositoryLink: 'Link to the GitHub repository',
+    title: 'Capstone Project: Full Stack Food Ordering App',
+    description:
+      'A full-stack food ordering platform built with React, Node.js, Express, and MongoDB. Includes user authentication, admin dashboard, and Stripe payment integration.',
+    image: foodOrderingAppImage,
+    repositoryLink: 'https://github.com/Cavery22', // Replace with real repo link when available
   },
   {
-    title: 'Project 2',
-    description: 'Description of project 2',
-    repositoryLink: 'Link to the GitHub repository',
-  },
-  {
-    title: 'Project 3',
-    description: 'Description of project 3',
-    repositoryLink: 'Link to the GitHub repository',
-  },
-  {
-    title: 'Project 4',
-    description: 'Description of project 4',
-    repositoryLink: 'Link to the GitHub repository',
-  },
-  {
-    title: 'Project 5',
-    description: 'Description of project 5',
-    repositoryLink: 'Link to the GitHub repository',
+    title: 'React Weather App',
+    description:
+      'A responsive weather dashboard using OpenWeatherMap API. Built with React Hooks, styled for clean UI, and supports real-time city search.',
+    image: weatherAppImage,
+    repositoryLink: 'https://github.com/Cavery22/Weather-App-Template',
   },
 ];
+
 const Projects = () => {
   return (
-    <main className="projects-container">
-      {myProjects.map((project) => (
-        <section key={project.title} className="project-item border border-2 rounded-lg">
-          <section className="project-image-container">
-            <FaGithub />
+    <main className="projects-container px-6 py-20 bg-gray-50 min-h-screen">
+      <h1 className="text-3xl font-bold text-blue-600 mb-10 text-center">My Projects</h1>
+      <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        {myProjects.map((project) => (
+          <section
+            key={project.title}
+            className="bg-white border border-gray-200 p-4 rounded-lg shadow-sm hover:shadow-md transition"
+          >
+            {/* Project Image */}
+            <img
+              src={project.image}
+              alt={`${project.title} preview`}
+              className="w-full h-48 object-cover rounded-md mb-4"
+            />
+
+            {/* Title & Description */}
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h2>
+            <p className="text-gray-600 mb-3">{project.description}</p>
+
+            {/* GitHub Link */}
+            <div className="flex items-center gap-2 text-blue-500">
+              <FaGithub />
+              <a
+                href={project.repositoryLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                View Code on GitHub
+              </a>
+            </div>
           </section>
-          <h2 className="text-xl font-semibold">{project.title}</h2>
-          <p className="text-lg">{project.description}</p>
-          <p>Check out the link to the project repository <a href={project.repositoryLink} target="_blank">Here</a> </p>
-
-        </section>
-      ))}
+        ))}
+      </div>
     </main>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
