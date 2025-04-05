@@ -41,8 +41,8 @@ const About = () => {
 
       {/* Scroll test section (optional) */}
       <section className="py-20 text-center">
-        <h3 className="text-xl text-gray-600">Scroll Test</h3>
-        <p className="text-gray-500">If you see this, scroll is working! ✅</p>
+        <h3 className="text-xl text-gray-600"></h3>
+        <p className="text-gray-500"></p>
       </section>
     </main>
   );
